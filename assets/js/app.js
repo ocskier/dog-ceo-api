@@ -40,7 +40,7 @@ function callAPI(breed) {
         var picUrl = messages[index];
 
         var newPetImgEl = document.createElement('img');
-        newPetImgEl.setAttribute('class', 'img-thumbnail rounded w-100 mh-100');
+        newPetImgEl.setAttribute('class', 'img-thumbnail rounded w-100 h-100');
         newPetImgEl.src = picUrl;
 
         var newPicDivEl = document.createElement('div');
