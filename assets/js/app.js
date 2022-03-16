@@ -1,9 +1,10 @@
-
+// Grab references for all persistent elements in the DOM
 var breedFormEl = document.querySelector('.breed-form');
 var breedInputEl = document.getElementById('breed-input');
 var breedContainerEl = document.getElementById('breed-info');
 var loading = document.querySelector('.spinner-border');
 
+// Make api call to get all breeds to populate autocomplete input field
 fetch('https://dog.ceo/api/breeds/list/all')
   .then((response) => {
     if (response.status < 400) {
@@ -17,26 +18,34 @@ fetch('https://dog.ceo/api/breeds/list/all')
     });
   });
 
+// A reusable function to call the Dog CEO api with any breed for pics
 function callAPI(breed) {
+  // Empty the pic container
   breedContainerEl.innerHTML = '';
 
+  // Hide the breed header and show loading
   loading.previousElementSibling.classList.add('d-none');
   loading.classList.remove('d-none');
 
+  //Call the API with the specific breed
   fetch('https://dog.ceo/api/breed/' + breed + '/images')
     .then(response => {
       if(response.status < 400) {
+        // Parse JSON from body of response if successful
         return response.json()
       }
       throw new Error('No breed data Available!')
     })
     .then(data => {
+      // Alert successful call
       toast();
       var messages = data.message;
 
+      // Show the breed header
       loading.previousElementSibling.textContent = breed.charAt(0).toUpperCase() + breed.slice(1);
       loading.previousElementSibling.classList.remove('d-none');
 
+      // Create an image element for all breed pics
       for (var index = 0; index < messages.length; index++) {
         var picUrl = messages[index];
 
@@ -49,9 +58,11 @@ function callAPI(breed) {
         newPicDivEl.append(newPetImgEl);
         breedContainerEl.append(newPicDivEl);
       }
+      // Hide the loading element 
       loading.classList.add('d-none');
     })
     .catch((error) => {
+      // Alert the user for any network issues
       console.log(error);
       toast('error');
       setTimeout(function () {
@@ -60,6 +71,7 @@ function callAPI(breed) {
     });
 }
 
+// Listen for breed submission and run the search with the input
 breedFormEl.addEventListener('submit', function (e) {
   e.preventDefault();
   var breedVal = breedInputEl.value;
