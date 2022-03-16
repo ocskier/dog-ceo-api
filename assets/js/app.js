@@ -34,6 +34,7 @@ function callAPI(breed) {
       toast();
       var messages = data.message;
 
+      loading.previousElementSibling.textContent = breed.charAt(0).toUpperCase() + breed.slice(1);
       loading.previousElementSibling.classList.remove('d-none');
 
       for (var index = 0; index < messages.length; index++) {
