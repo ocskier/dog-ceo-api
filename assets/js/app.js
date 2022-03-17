@@ -2,7 +2,7 @@
 var breedFormEl = document.querySelector('.breed-form');
 var breedInputEl = document.getElementById('breed-input');
 var breedContainerEl = document.getElementById('breed-info');
-var carousel = document.getElementById('pic-carousel');
+// var carousel = document.getElementById('pic-carousel');
 var loading = document.querySelector('.spinner-border');
 
 // Make api call to get all breeds to populate autocomplete input field
@@ -26,7 +26,7 @@ function callAPI(breed) {
 
   // Hide the breed header and show loading
   loading.previousElementSibling.classList.add('d-none');
-  carousel.classList.add('d-none');
+  // carousel.classList.add('d-none');
   loading.classList.remove('d-none');
 
   //Call the API with the specific breed
@@ -64,7 +64,7 @@ function callAPI(breed) {
         breedContainerEl.append(newPicDivEl);
       }
       // Hide the loading element 
-      carousel.classList.remove('d-none');
+      // carousel.classList.remove('d-none');
       loading.classList.add('d-none');
     })
     .catch((error) => {
