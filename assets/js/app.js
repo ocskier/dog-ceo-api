@@ -50,12 +50,15 @@ function callAPI(breed) {
         var picUrl = messages[index];
 
         var newPetImgEl = document.createElement('img');
-        newPetImgEl.setAttribute('class', 'img-thumbnail rounded w-100 h-100');
+
+        newPetImgEl.setAttribute('class', 'd-block w-100');
         newPetImgEl.src = picUrl;
+        newPetImgEl.alt = 'dog-' + index;
 
         var newPicDivEl = document.createElement('div');
-        newPicDivEl.setAttribute('class', 'col-8 col-sm-5 col-md-3 pet-pic');
+        newPicDivEl.setAttribute('class', 'carousel-item' + `${index === 0 ? 'active' : ''}`);
         newPicDivEl.append(newPetImgEl);
+        
         breedContainerEl.append(newPicDivEl);
       }
       // Hide the loading element 
