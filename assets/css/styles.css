@@ -44,3 +44,7 @@ footer,
   height: 120px;
   margin: 2rem auto;
 }
+
+#pet-carousel {
+  margin-top: 2rem; 
+}
