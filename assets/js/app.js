@@ -58,7 +58,7 @@ function callAPI(breed) {
         newPetImgEl.alt = 'dog-' + index;
 
         var newPicDivEl = document.createElement('div');
-        newPicDivEl.setAttribute('class', '');
+        newPicDivEl.setAttribute('class', 'col-8 col-sm-5 col-md-3 pet-pic');
         newPicDivEl.append(newPetImgEl);
         
         breedContainerEl.append(newPicDivEl);
