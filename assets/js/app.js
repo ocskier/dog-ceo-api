@@ -53,12 +53,12 @@ function callAPI(breed) {
 
         var newPetImgEl = document.createElement('img');
 
-        newPetImgEl.setAttribute('class', 'd-block w-100 pet-pic');
+        newPetImgEl.setAttribute('class', 'img-thumbnail rounded w-100 h-100');
         newPetImgEl.src = picUrl;
         newPetImgEl.alt = 'dog-' + index;
 
         var newPicDivEl = document.createElement('div');
-        newPicDivEl.setAttribute('class', 'carousel-item' + `${index === 0 ? ' active' : ''}`);
+        newPicDivEl.setAttribute('class', '');
         newPicDivEl.append(newPetImgEl);
         
         breedContainerEl.append(newPicDivEl);
